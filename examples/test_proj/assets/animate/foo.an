@@ -1,0 +1,62 @@
+{
+
+	"HTMLFileName":"foo.html",
+	"symbol_stage":{
+		"dummyStageParentWidth":"550px",
+		"dummyStageParentHeight":"400px",
+		"element_${_EllipseCopy}":{
+			"timelineColor2":"0x168c84",
+			"timelineColor3":"0x2a605c",
+			"timelineColor":"0x00a096"},
+		"element_${_Text}":{
+			"timelineColor2":"0x4fa275",
+			"timelineColor3":"0x456a55",
+			"timelineColor":"0x50bd82"},
+		"element_${_EllipseCopy4}":{
+			"timelineColor2":"0x107faa",
+			"timelineColor3":"0x295a6d",
+			"timelineColor":"0x008dc8"},
+		"defaultStageParentHeight":"400px",
+		"element_${_Ellipse}":{
+			"timelineColor2":"0x1aa38f",
+			"timelineColor3":"0x2a6a61",
+			"timelineColor":"0x00bda4"},
+		"element_${_EllipseCopy3}":{
+			"timelineColor2":"0x1095d2",
+			"timelineColor3":"0x29647e",
+			"timelineColor":"0x00a9fa"},
+		"defaultStageParentWidth":"550px",
+		"element_${_EllipseCopy2}":{
+			"timelineColor2":"0x326a96",
+			"timelineColor3":"0x385063",
+			"timelineColor":"0x2f73ad"},
+		"element_${_Stage}":{
+			"timelineColor2":"0xcbbd71",
+			"timelineColor3":"0x7b7652",
+			"timelineColor":"0xeedf79"},
+		"element_${_wow-8}":{
+			"timelineColor2":"0x81aa62",
+			"timelineColor3":"0x5b6c4d",
+			"timelineColor":"0x91c767"}},
+	"CompZoomFactor":"100",
+	"StageZoomFactor":"100",
+	"usedBOM":"false",
+	"nextElementColorIndex":"9",
+	"stage-Default Timeline_playhead_ms":"0",
+	"pref__general__FilterNonAnimatedElements":"false",
+	"ModelData":"{\
+\"stage\": {\
+   \"timelines\": {\
+      \"Default Timeline\": {\
+      }\
+   }},\
+\"プリローダー\": {\
+   \"timelines\": {\
+\
+   }},\
+\"下位レベル\": {\
+   \"timelines\": {\
+\
+   }}\
+}",
+	"viewStartY":"0"}
