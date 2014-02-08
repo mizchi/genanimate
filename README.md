@@ -11,15 +11,13 @@ npm install genanimate
 ## How to use
 
 ```coffeescript
-require 'genanimate'
-config =
-  animate_dir: 'assets/edge_animate'
+genanimate = require 'genanimate'
+genanimate.genanimate
+  animate_dir: 'assets/animate'
   src: ['test']
-  dist: 'gen'
-  html_path: 'gen'
-  images_path: 'gen/images'
+  html_gen_path: 'gen'
+  images_gen_path: 'gen/images'
 executeTask config
-# => 
 ```
 
 ## TODO

@@ -3,14 +3,14 @@ path = require 'path'
 fs = require 'fs.extra'
 mkdirp = require 'mkdirp'
 
-ANIMATE_HTML_SUFFIX = '_edgeActions.html'
+ANIMATE_HTML_SUFFIX = '.html'
+ANIMATE_HTML_ACTION_SUFFIX = '_edgeActions.html'
 
 ### Example
 genanimate = require 'genanimate'
 genanimate.genanimate
   animate_dir: 'assets/animate'
   src: ['test']
-  dist: 'gen'
   html_gen_path: 'gen'
   images_gen_path: 'gen/images'
 executeTask config
@@ -25,29 +25,31 @@ loadAndExec = (url, execCode, callback = ->) ->
 
 copyToGenFromRoot = (config, callback = ->) ->
   from = path.join path.resolve(config.animate_dir), 'images'
-  to = path.join path.resolve('.'), config.images_path
-
+  to = path.join path.resolve('.'), config.images_gen_path
   mkdirp to, (e) =>
-    if err then console.error(err)
+    if e then console.error(err)
     fs.copyRecursive from, to, callback
 
 scrapeAnimate = (config, target, callback = ->) ->
-  animate_target = 'file://' + path.join(path.resolve(config.animate_dir), "#{target}_edgeActions.html")
-  loadAndExec animate_target
+  animate_target =
+    if path.existsSync(path.join(path.resolve(config.animate_dir), target+ANIMATE_HTML_SUFFIX))
+      path.join(path.resolve(config.animate_dir), target+ANIMATE_HTML_SUFFIX)
+    else
+      path.join(path.resolve(config.animate_dir), target+ANIMATE_HTML_ACTION_SUFFIX)
+
+  loadAndExec 'file://'+animate_target
   , (-> $('#Stage').html())
   , (ph, result) ->
     ph.exit()
-    to = path.join path.resolve(config.dist), config.html_path+'.html'
+    to = path.join path.resolve(config.html_gen_path), target+'.html'
     fs.writeFileSync to, result
     callback(result)
 
 executeTask = (config, callback = ->) ->
   copyToGenFromRoot config, ->
-    console.log 'copy assets'
     config.src = if config.src?.length then config.src else [config.src]
     config.src.forEach (s) ->
       scrapeAnimate config, s, (result) ->
-        console.log 'done', s
         callback?()
 
 exports.genanimate
