@@ -17,7 +17,6 @@ genanimate.genanimate
   src: ['test']
   html_gen_path: 'gen'
   images_gen_path: 'gen/images'
-executeTask config
 ```
 
 ## TODO
