@@ -13,7 +13,6 @@ genanimate.genanimate
   src: ['test']
   html_gen_path: 'gen'
   images_gen_path: 'gen/images'
-executeTask config
 ###
 
 # String * Function * String -> ()
@@ -32,7 +31,7 @@ copyToGenFromRoot = (config, callback = ->) ->
 
 scrapeAnimate = (config, target, callback = ->) ->
   animate_target =
-    if path.existsSync(path.join(path.resolve(config.animate_dir), target+ANIMATE_HTML_SUFFIX))
+    if fs.existsSync(path.join(path.resolve(config.animate_dir), target+ANIMATE_HTML_SUFFIX))
       path.join(path.resolve(config.animate_dir), target+ANIMATE_HTML_SUFFIX)
     else
       path.join(path.resolve(config.animate_dir), target+ANIMATE_HTML_ACTION_SUFFIX)
@@ -41,7 +40,7 @@ scrapeAnimate = (config, target, callback = ->) ->
   , (-> $('#Stage').html())
   , (ph, result) ->
     ph.exit()
-    result = result.replace 'file://'+path.resolve(config.animate_dir), '/'
+    result = result.replace 'file://'+path.resolve(config.animate_dir), ''
     to = path.join path.resolve(config.html_gen_path), target+'.html'
     fs.writeFileSync to, result
     console.log 'file generate:', to, result[0..10], '...'

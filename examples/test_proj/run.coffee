@@ -1,4 +1,4 @@
-genanimate = require 'genanimate'
+genanimate = require '../../src/genanimate'
 genanimate.genanimate
   animate_dir: 'assets/animate'
   src: ['foo']
