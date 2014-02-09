@@ -43,6 +43,7 @@ scrapeAnimate = (config, target, callback = ->) ->
     ph.exit()
     to = path.join path.resolve(config.html_gen_path), target+'.html'
     fs.writeFileSync to, result
+    console.log 'file generate:', to, result[0..10]
     callback(result)
 
 executeTask = (config, callback = ->) ->
