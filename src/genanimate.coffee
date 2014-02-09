@@ -40,7 +40,8 @@ scrapeAnimate = (config, target, callback = ->) ->
   , (-> $('#Stage').html())
   , (ph, result) ->
     ph.exit()
-    result = result.replace 'file://'+path.resolve(config.animate_dir), ''
+    regex = RegExp 'file://'+path.resolve(config.animate_dir), 'g'
+    result = result.replace regex, ''
     to = path.join path.resolve(config.html_gen_path), target+'.html'
     fs.writeFileSync to, result
     console.log 'file generate:', to, result[0..10], '...'
